@@ -15,6 +15,10 @@ configure do |c|
 end
 
 get '/' do
+  redirect to('/environments/')
+end
+
+get '/environments/' do
   @items = settings.chef.get_rest("/data/#{settings.data_bag}")
   haml :item_list
 end
