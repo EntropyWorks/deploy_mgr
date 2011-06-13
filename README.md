@@ -9,10 +9,10 @@ Configuration
 Create a Chef client with `knife client create deploy_mgr` (obviously you can name the client whatever you want). Save the generated private key somewhere appropriate. If you are using Chef Server, this client apparently needs admin rights in order to update data bags.
 
 Create a chef.yaml file containing the following keys:
-* `url`: URL of your Chef server, e.g. http://chef.example.com:4000/
-* `client_name`: the Chef client name used above
-* `key_file`: the location of the private key generated above
-* `data_bag`: the name of the Chef data bag storing deployment information.
+* `url` - URL of your Chef server, e.g. http://chef.example.com:4000/
+* `client_name` - the Chef client name used above
+* `key_file` - the location of the private key generated above
+* `data_bag` - the name of the Chef data bag storing deployment information.
 
 Ensure the appropriate gems are installed with `bundle install --deployment`.
 
