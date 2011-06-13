@@ -33,3 +33,4 @@ TODO
 * display per-environment policy information
 * add some form of access control
 * track and display deployment progress with Chef
+* support Rack deployment
