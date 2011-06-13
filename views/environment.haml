@@ -1,0 +1,20 @@
+%html
+  %head
+    %link(rel='stylesheet' href='/style.css' type="text/css")
+    %title #{@env_name} environment
+  %body
+    #content
+      %h2 #{@env_name} environment deployment targets
+      %p
+        You can enter a deployment target for each of the application
+        components listed below. This can be a Git branch name, tag, or
+        revision identifier; it will be pulled from Github and deployed.
+
+      %form{:method => "post", :action => "update"}
+        %table
+          - @targets.keys.sort.each do |comp|
+            %tr
+              %td= comp
+              %td
+                %input{:type => 'text', :name => comp, :value => @targets[comp]}
+        %input{:type => 'submit', :value => 'Update'}

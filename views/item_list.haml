@@ -1,0 +1,15 @@
+%html
+  %head
+    %link(rel='stylesheet' href='/style.css' type="text/css")
+    %script(src='/common.js' type="application/javascript")
+    %title Environments
+  %body
+    #content
+      %h2 Environments
+      %p
+        This application controls the versions of software which will be
+        deployed into the following environments.
+
+      - @items.keys.sort.each do |item|
+        .env{:onclick => "on_env_click('/environments/#{item}/')"}
+          %a{:href => "/environments/#{item}/"}= item
