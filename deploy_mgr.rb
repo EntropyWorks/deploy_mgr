@@ -28,6 +28,10 @@ get '/environments/:env_name/' do |env_name|
   item = settings.chef.get_rest("/data/#{settings.data_bag}/#{env_name}")
   item.delete('id')
   @targets = item
+  #haml :environment
+  item2 = settings.chef.get_rest("/data/#{settings.data_bag}/qa")
+  item2.delete('id')
+  @staging = item2
   haml :environment
 end
 

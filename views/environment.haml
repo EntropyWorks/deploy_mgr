@@ -9,12 +9,29 @@
         You can enter a deployment target for each of the application
         components listed below. This can be a Git branch name, tag, or
         revision identifier; it will be pulled from Github and deployed.
+      %p
 
+      <table vertical-align="top" >
+      <tr>
+      <td >
+      %h4 Current QA
+      %table
+        - @staging.keys.sort.each do |comp|
+          %tr
+            %td= comp
+            %td= @staging[comp]
+      </td>
+      <td>
+      %h4 #{@env_name}
       %form{:method => "post", :action => "update"}
         %table
           - @targets.keys.sort.each do |comp|
             %tr
-              %td= comp
+              <!-- %td= comp -->
               %td
                 %input{:type => 'text', :name => comp, :value => @targets[comp]}
-        %input{:type => 'submit', :value => 'Update'}
+      %input{:type => 'submit', :value => 'Update'}
+      </td>
+      </tr>
+      </table>
+<hr>
